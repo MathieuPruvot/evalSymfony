@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BlogPost{% endblock %}
+
+{% block header %}
+    <h1>Delete BlogPost</h1>
+{% endblock header %}
+
+{% block body %}
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ blog_post.id }}</td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td>{{ blog_post.title }}</td>
+        </tr>
+        <tr>
+            <th>Slug</th>
+            <td>{{ blog_post.slug }}</td>
+        </tr>
+        <tr>
+            <th>Content</th>
+            <td>{{ blog_post.content }}</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td>{{ blog_post.date }}</td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td>{{ blog_post.category }}</td>
+        </tr>
+        <tr>
+            <th>Featured</th>
+            <td>{{ blog_post.Featured ? 'Yes' : 'No' }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form method="post" action="{{ path('blog_post_delete', {'id': blog_post.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ blog_post.id) }}">
+        <button class="btn">Delete</button>
+    </form>
+{% endblock %}

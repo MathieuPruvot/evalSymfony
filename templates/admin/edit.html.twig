@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Edit BlogPost{% endblock %}
+
+{% block header %}
+    <h1>Edit BlogPost</h1>
+{% endblock header %}
+
+{% block content %}
+
+    {{ include('admin/_form.html.twig', {'button_label': 'Update'}) }}
+
+{% endblock %}

@@ -2,11 +2,11 @@
 
 {% block body %}
     <div class="container">
-    {{ include("header.html.twig") }}
-    {{ include("menu.html.twig") }}
-    {% block content %}
-        {{ include("content.html.twig") }}
-    {% endblock content %}
+        {% block header %}
+        {% endblock header %}
+        {{ include("menu.html.twig") }}
+        {% block content %}
+        {% endblock content %}
     {{ include("footer.html.twig") }}
     </div>
 {% endblock body %}
